@@ -1,0 +1,14 @@
+#!/bin/bash
+cd DIRECTORY
+number=1
+while [ $number -le 45504 ]
+do
+width=$(identify -format '%w' $number.jpg)
+height=$(identify -format '%h' $number.jpg)
+if [ "$height" -le "$width" ]
+then echo "landscape found and removed"
+mv $number.jpg portraits
+else echo "number $number"
+fi
+number=$((number+1))
+done
